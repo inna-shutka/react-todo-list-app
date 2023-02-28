@@ -1,5 +1,7 @@
 .input {
-    min-width: 100%;
+    width: 100%;
+    width: 343px;
+    height: 40px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -29,11 +31,11 @@ input:hover::placeholder {
 }
 
 .input:focus {
-    box-shadow: 0 0 0 2px #C4C4C4;
+    box-shadow: 0 0 0 1px #292D32;
 }
 
 input:focus::placeholder {
-    color: #C4C4C4;
+    color: #8A8E97;
 }
 
 .input:active {
