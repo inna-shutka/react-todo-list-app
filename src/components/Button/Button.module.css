@@ -1,0 +1,96 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    fill: #6A6E74;
+}
+
+.icon:hover {
+    fill: #292D32;
+}
+
+.variant-primary {
+    width: 73px;
+    height: 32px;
+    padding: 9px 16px;
+    background: #6A6E74;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+    box-shadow: 0 0 0 2px transparent;
+}
+
+.variant-primary:hover {
+    background: #292D32;
+}
+
+.variant-primary:focus {
+    background: #6A6E74;
+    box-shadow: 0 0 0 2px #D7DCFF;
+}
+
+.variant-primary:disabled {
+    background: #C4C4C4;
+}
+
+.variant-text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #6A6E74;
+    border-radius: 8px;
+    padding: 3px 2px;
+    box-shadow: 0 0 0 2px transparent;
+}
+
+.variant-text:hover {
+    color: #292D32;
+}
+
+.variant-text:focus {
+    color: #6A6E74;
+    box-shadow: 0 0 0 2px #D7DCFF;
+}
+
+.variant-text:disabled {
+    color: #C4C4C4;
+}
+
+.variant-icon {
+    fill: #6A6E74;
+    border-radius: 8px;
+    box-shadow: 0 0 0 2px transparent;
+}
+
+.variant-icon:hover {
+    fill: #292D32;
+}
+
+.variant-icon:focus {
+    fill: #6A6E74;
+    box-shadow: 0 0 0 2px #D7DCFF;
+}
+
+.variant-icon:disabled {
+    fill: #C4C4C4;
+}
+
+.size-small {
+    width: 16px;
+    height: 16px;
+}
+
+.size-medium {
+    width: 24px;
+    height: 24px;
+}
+
+.size-large {
+    width: 40px;
+    height: 40px;
+}
