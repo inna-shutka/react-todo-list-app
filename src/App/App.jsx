@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
 import styles from './index.module.css';
+import { useState } from 'react';
 import { Input } from '../components/Input/Input';
 import { Checkbox } from '../components/Checkbox/Checkbox';
 import { Button } from '../components/Button/Button';
+import { Card } from '../components/Card/Card';
 
 function App({ }) {
     const [inputValue, setInputValue] = useState('');
@@ -23,54 +26,58 @@ function App({ }) {
                 </Button>
                 <Button
                     className={styles.buttonIcon}
-                    variant="icon"
-                    icon="IconMore"
-                    size="medium"
+                    variant='icon'
+                    icon='IconMore'
+                    size='medium'
                 >
                 </Button>
                 <Button
                     className={styles.buttonIcon}
-                    variant="icon"
-                    icon="IconAdd"
+                    variant='icon'
+                    icon='IconAdd'
                     size="large"
                 >
                 </Button>
                 <Button
                     className={styles.buttonIcon}
-                    variant="icon"
-                    icon="IconClose"
-                    size="medium"
+                    variant='icon'
+                    icon='IconClose'
+                    size='medium'
                 >
                 </Button>
                 <Button
                     className={styles.buttonIcon}
-                    variant="icon"
-                    icon="IconDelete"
-                    size="medium"
+                    variant='icon'
+                    icon='IconDelete'
+                    size='medium'
                 >
                 </Button>
                 <Button
                     className={styles.buttonIcon}
-                    variant="icon"
-                    icon="IconArrowDown"
-                    size="medium"
+                    variant='icon'
+                    icon='IconArrowDown'
+                    size='medium'
                 >
                 </Button>
                 <Button
                     className={styles.buttonIcon}
-                    variant="icon"
-                    icon="IconArrowUp"
-                    size="medium"
+                    variant='icon'
+                    icon='IconArrowUp'
+                    size='medium'
                 >
                 </Button>
                 <Button
                     className={styles.buttonIcon}
-                    variant="icon"
-                    icon="IconEdit"
-                    size="medium"
+                    variant='icon'
+                    icon='IconEdit'
+                    size='medium'
                 >
                 </Button>
             </div>
+            <Card
+                title='Task title'
+                text='Lorem ipsum dolor sit amet consectetur. Hendrerit metus etiam in sed vulputate tellus diam dui.'
+            />
         </div>
     );
 }

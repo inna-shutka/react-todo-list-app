@@ -1,0 +1,59 @@
+.card {
+    max-width: 441px;
+    height: 100%;
+    left: 20px;
+    top: 20px;
+    background: #FFF8D5;
+    border-radius: 8px;
+    padding: 16px 24px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.cardTitle {
+    font-weight: 500;
+    font-size: 18px;
+    font-family: "Rubik", sans-serif;
+    line-height: 21px;
+    color: #535559;
+}
+
+.popoverWrapper {
+    position: relative;
+}
+
+.cardText {
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Rubik", sans-serif;
+    line-height: 17px;
+    color: #6A6E74;
+    margin-bottom: 16px;
+}
+
+.cardTextCheck {
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Rubik", sans-serif;
+    line-height: 17px;
+    color: #6A6E74;
+    margin-bottom: 16px;
+    text-decoration: line-through;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardColorWrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}

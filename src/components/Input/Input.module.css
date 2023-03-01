@@ -11,6 +11,7 @@
     box-shadow: 0 0 0 1px #C4C4C4;
     font-weight: 400;
     font-size: 14px;
+    font-family: "Rubik", sans-serif;
     line-height: 17px;
     color: #292D32;
 }
@@ -18,6 +19,7 @@
 .input::placeholder {
     font-weight: 400;
     font-size: 14px;
+    font-family: "Rubik", sans-serif;
     line-height: 17px;
     color: #C4C4C4;
 }
