@@ -1,14 +1,18 @@
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import styles from './ColorDot.module.css';
 
-export const ColorDot = ({ className, variant }) => {
+export const ColorDot = ({ className, color }) => {
     return (
-        <div className={clsx(className, styles[variant], styles.container)}></div>
+        <div 
+            className={clsx(className, styles.container)}
+            style={{ backgroundColor: color }}
+            >
+        </div>
     );
 };
 
 ColorDot.propTypes = {
     className: PropTypes.string,
-    variant: PropTypes.oneOf(['purple', 'blue', 'orange', 'green']).isRequired,
+    color: PropTypes.string.isRequired,
 };

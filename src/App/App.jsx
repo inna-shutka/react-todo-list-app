@@ -1,85 +1,75 @@
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import styles from './index.module.css';
-import { useState } from 'react';
-import { Input } from '../components/Input/Input';
-import { Checkbox } from '../components/Checkbox/Checkbox';
-import { Button } from '../components/Button/Button';
-import { Card } from '../components/Card/Card';
+import { useState, useEffect } from 'react';
+import { Input } from '../components/Input';
+import { Checkbox } from '../components/Checkbox';
+import { Button } from '../components/Button';
+import { Card } from '../components/Card';
+import { PopupDelete } from '../components/PopupDelete';
+import { EditableButton } from '../components/EditableButton';
+import { Tag } from '../components/Tag';
+import styles from './App.module.css';
 
-function App({ }) {
+export const App = () => {
     const [inputValue, setInputValue] = useState('');
     const [check, setCheck] = useState(false);
+    const [onDelete, setOnDelete] = useState(false);
+    const [onDeleted, setOnDeleted] = useState(true);
+    const [newValue, setNewValue] = useState('');
+    const [done, onDoneChange] = useState(false);
+
+    const onSave = async () => {
+        return true;
+    };
+
+    useEffect(() => {
+        return () => setOnDelete(false);
+    }, [onDeleted]);
 
     return (
         <div className={styles.container}>
-            <Input value={inputValue} onChange={setInputValue} placeholder={'Placeholder'} />
-            <div className={styles.buttonsAll}>
+            <Input
+            type='text'
+            value={inputValue}
+            onChange={setInputValue}
+            placeholder='Placeholder'
+            />
+            <div className={styles.allButtons}>
                 <Checkbox checked={check} onChange={setCheck}>
                     Done
                 </Checkbox>
-                <Button className={styles.buttonPrimary} variant='primary'>
-                    Button
-                </Button>
-                <Button className={styles.buttonText} variant='text'>
-                    Add New Task
-                </Button>
-                <Button
-                    className={styles.buttonIcon}
-                    variant='icon'
-                    icon='IconMore'
-                    size='medium'
-                >
-                </Button>
-                <Button
-                    className={styles.buttonIcon}
-                    variant='icon'
-                    icon='IconAdd'
-                    size="large"
-                >
-                </Button>
-                <Button
-                    className={styles.buttonIcon}
-                    variant='icon'
-                    icon='IconClose'
-                    size='medium'
-                >
-                </Button>
-                <Button
-                    className={styles.buttonIcon}
-                    variant='icon'
-                    icon='IconDelete'
-                    size='medium'
-                >
-                </Button>
-                <Button
-                    className={styles.buttonIcon}
-                    variant='icon'
-                    icon='IconArrowDown'
-                    size='medium'
-                >
-                </Button>
-                <Button
-                    className={styles.buttonIcon}
-                    variant='icon'
-                    icon='IconArrowUp'
-                    size='medium'
-                >
-                </Button>
-                <Button
-                    className={styles.buttonIcon}
-                    variant='icon'
-                    icon='IconEdit'
-                    size='medium'
-                >
-                </Button>
+                <Button variant='primary'>Button</Button>
+                <Button variant='icon' icon='actions' size='medium'/>
+                <Button variant='icon' icon='plus' size='medium'/>
+                <Button variant='danger'>Button</Button>
+                <Button variant='dashed' icon='plus'>Button</Button>
+                <Button variant='text'>Cancel</Button>
             </div>
-            <Card
+            {onDeleted && (
+                <Card
                 title='Task title'
                 text='Lorem ipsum dolor sit amet consectetur. Hendrerit metus etiam in sed vulputate tellus diam dui.'
+                onDelete={() => setOnDelete(!onDelete)}
+                onEdit={() => undefined}
+                done={done}
+                onDoneChange={onDoneChange}
+                tags={[]}
+                />
+            )}
+            {onDelete && (
+            <PopupDelete
+            onDeleted={() => setOnDeleted(!onDeleted)}
+            title='Do you really want to delete this task?'
             />
+            )}
+            <EditableButton
+            icon='plus'
+            value={newValue}
+            onChange={setNewValue}
+            onSave={onSave}
+            >
+                add new task
+            </EditableButton>
         </div>
     );
-}
+};
 
-export default App
+export default App;

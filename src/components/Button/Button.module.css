@@ -1,29 +1,13 @@
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon {
-    fill: #6A6E74;
-}
-
-.icon:hover {
-    fill: #292D32;
-}
-
 .variant-primary {
     width: 73px;
     height: 32px;
-    padding: 9px 16px;
     background: #6A6E74;
     border-radius: 8px;
+    cursor: pointer;
     font-weight: 500;
     font-size: 12px;
-    font-family: "Rubik", sans-serif;
     line-height: 14px;
     color: #FFFFFF;
-    box-shadow: 0 0 0 2px transparent;
 }
 
 .variant-primary:hover {
@@ -39,15 +23,42 @@
     background: #C4C4C4;
 }
 
-.variant-text {
-    font-weight: 500;
-    font-size: 14px;
-    font-family: "Rubik", sans-serif;
-    line-height: 17px;
-    color: #6A6E74;
+.variant-danger {
+    width: 73px;
+    height: 32px;
+    background: #FF4F4F;
     border-radius: 8px;
-    padding: 3px 2px;
-    box-shadow: 0 0 0 2px transparent;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+.variant-danger:hover {
+    background: #EB0404;
+}
+
+.variant-danger:focus {
+    background: #FF4F4F;
+    box-shadow: 0 0 0 2px #D7DCFF;
+}
+
+.variant-danger:disabled {
+    background: #C4C4C4;
+}
+
+.variant-text {
+    width: 48px;
+    height: 18px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #6A6E74;
+    background: transparent;
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 4px;
 }
 
 .variant-text:hover {
@@ -64,35 +75,94 @@
 }
 
 .variant-icon {
-    fill: #6A6E74;
-    border-radius: 8px;
-    box-shadow: 0 0 0 2px transparent;
+    position: relative;
+    cursor: pointer;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
 }
 
-.variant-icon:hover {
+.icon {
+    width: 100%;
+    height: 100%;
+    fill: #6A6E74;
+}
+
+.icon:hover {
     fill: #292D32;
 }
 
 .variant-icon:focus {
-    fill: #6A6E74;
     box-shadow: 0 0 0 2px #D7DCFF;
 }
 
-.variant-icon:disabled {
-    fill: #C4C4C4;
+.variant-icon:focus .icon {
+    fill: #6A6E74;
 }
 
-.size-small {
+.button-small {
     width: 16px;
     height: 16px;
 }
 
-.size-medium {
+.button-medium {
     width: 24px;
     height: 24px;
 }
 
-.size-large {
+.button-large {
     width: 40px;
     height: 40px;
+}
+
+.hasIcon {
+    margin-right: 6px;
+    width: 14px;
+    height: 14px;
+}
+
+.variant-dashed {
+    position: relative;
+    width: 160px;
+    height: 32px;
+    border-radius: 8px;
+    color: #6A6E74;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    border: 1px dashed #6A6E74;
+}
+
+.variant-dashed:hover {
+    color: #292D32;
+    border: 1px dashed #292D32;
+}
+
+.variant-dashed:hover .hasIcon {
+    fill: #292D32;
+}
+
+.variant-dashed:focus {
+    color: #6A6E74;
+    border: 1px dashed #6A6E74;
+    box-shadow: 0 0 0 2px #D7DCFF;
+}
+
+.variant-dashed:focus .hasIcon {
+    fill: #6A6E74;
+}
+
+.variant-dashed:disabled {
+    color: #C4C4C4;
+}
+
+.fluid {
+    min-width: 100%;
 }

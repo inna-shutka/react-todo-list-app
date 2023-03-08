@@ -2,20 +2,5 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-}
-
-.purple {
-    background: #BCB9FF;
-}
-
-.blue {
-    background: #76B6FF;
-}
-
-.orange {
-    background: #FF9960;
-}
-
-.green {
-    background: #A0EC83;
+    display: inline-block;
 }

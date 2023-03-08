@@ -1,4 +1,4 @@
-.checkboxContainer {
+.checkbox {
     position: relative;
     display: flex;
     justify-content: center;
@@ -14,16 +14,16 @@
     z-index: -1;
 }
 
-.checkboxLabel {
+.checkboxButton {
+    position: relative;
+    width: 20px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20px;
-    height: 20px;
-    background-color: inherit;
+    background: #FFFFFF;
     border: 1px solid #C4C4C4;
     border-radius: 4px;
-    position: relative;
     padding: 0px;
     margin-right: 8px;
 }
@@ -31,7 +31,6 @@
 .checkboxIcon {
     width: 14px;
     height: 16px;
-    fill: #FFFFFF;
     opacity: 0;
 }
 
@@ -42,28 +41,28 @@
     color: #8A8E97;
 }
 
-.checkboxContainer:hover .checkboxLabel {
+.checkbox:hover .checkboxButton {
     border: 1px solid #292D32;
 }
 
-.checkboxContainer:hover .checkboxText{
+.checkbox:hover .checkboxText {
     color: #8A8E97;
 }
 
-.checkboxContainer:focus-within {
-    box-shadow: 0px 0px 0px 2px #D7DCFF;
+.checkbox:focus-within {
+    box-shadow: 0 0 0 2px #D7DCFF;
 }
 
-.checkboxInput:checked + .checkboxLabel {
-    background-color: #292D32;
+.checkboxInput:checked + .checkboxButton {
+    background: #292D32;
     border: 1px solid #292D32;
     box-shadow: 0px 0px 0px 2px transparent;
 }
 
-.checkboxInput:checked + .checkboxLabel .checkboxIcon {
-    opacity: 1;
+.checkboxInput:checked + .checkboxButton + .checkboxText {
+    color: #292D32;
 }
 
-.checkboxInput:checked + .checkboxLabel + .checkboxText {
-    color: #292D32;
+.checkboxInput:checked + .checkboxButton .checkboxIcon {
+    opacity: 1;
 }
