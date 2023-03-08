@@ -1,0 +1,83 @@
+.container {
+    min-width: 148px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    position: relative;
+}
+
+.active {
+    background-color: #EFEFEF;
+}
+
+.active .actions,
+.container:hover .actions {
+    opacity: 1;
+    visibility: visible;
+    width: auto;
+}
+
+.color {
+    margin-right: 8px;
+}
+
+.text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #292D32;
+    text-transform: lowercase;
+}
+
+.actions {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    padding-right: 8px;
+}
+
+.actionBtn {
+    width: 24px;
+    height: 24px;
+    fill: #6A6E74;
+}
+
+.actionBtn:not(:last-child) {
+    margin-right: 8px;
+}
+
+.input {
+    margin-right: 8px;
+    margin-left: 8px;
+    position: absolute;
+    top: 6px;
+    right: 0;
+    left: 34px;
+    height: 32px;
+    min-width: 96px;
+    bottom: 0;
+    background-color: #FFFFFF;
+}
+
+.inner {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 8px;
+}
+
+.button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    z-index: 1;
+}

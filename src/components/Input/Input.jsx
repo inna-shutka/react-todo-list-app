@@ -1,24 +1,54 @@
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import styles from './Input.module.css';
+import { forwardRef } from 'react';
 
-export const Input = ({ className, onChange, disabled, value }) => {
-    return (
-        <input
-            type='text'
-            className={clsx(styles.input, className)}
-            disabled={disabled}
+export const Input = forwardRef(
+    (
+        {
+        className,
+        value,
+        onChange,
+        disabled,
+        placeholder,
+        id,
+        name,
+        type,
+        size,
+        onBlur,
+        },
+    ref
+    ) => {
+        return (
+            <input
+            ref={ref}
+            placeholder={placeholder}
+            type={type}
+            className={clsx(className, styles.input, styles[size])}
             value={value}
             onChange={(e) => onChange(e.target.value)}
-            placeholder={'Placeholder'}
-        />
-    );
-};
+            disabled={disabled}
+            id={id}
+            name={name}
+            onBlur={onBlur}
+            />
+        );
+    }
+);
 
 Input.propTypes = {
-    value: PropTypes.string,
+    value: PropTypes.string.isRequired,
+    className: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     onChange: PropTypes.func,
-    className: PropTypes.string,
     disabled: PropTypes.bool,
     placeholder: PropTypes.string,
+    id: PropTypes.string,
+    name: PropTypes.string,
+    type: PropTypes.string,
+    size: PropTypes.oneOf(['large', 'small']),
+    onBlur: PropTypes.func,
+};
+
+Input.defaultProps = {
+    size: 'large',
 };

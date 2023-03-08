@@ -1,7 +1,7 @@
 .container {
     min-height: 100vh;
-    padding: 64px;
     background: #FFFFFF;
+    padding: 64px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,10 +9,14 @@
     gap: 100px;
 }
 
-.buttonsAll {
+.allButtons {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 50px;
 }
+
+/* .open-popup {
+    overflow-y: hidden;
+} */

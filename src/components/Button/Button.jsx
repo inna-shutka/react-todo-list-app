@@ -1,46 +1,55 @@
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import styles from './Button.module.css';
-import { Icon } from '../Icon/Icon';
-import { IconTypes } from '../Icon/Icon';
+import { Icon, IconTypes } from '../Icon';
 
 export const Button = ({
-    variant,
     className,
-    children,
     onClick,
-    disebled,
-    size,
+    children,
+    disabled,
+    variant,
     icon,
+    size,
+    fluid,
 }) => {
     return (
         <button
-            className={clsx(
-                styles.button,
-                styles[`variant-${variant}`],
-                styles[`size-${size}`],
-                className
-            )}
-            type={onClick ? 'button' : 'submit'}
-            onClick={onClick}
-            disabled={disebled}
+        type={onClick ? 'button' : 'submit'}
+        onClick={onClick}
+        className={clsx(
+            className,
+            styles.button,
+            styles[`variant-${variant}`],
+            styles[`button-${size}`],
+            { [styles.fluid]: fluid }
+        )}
+        disabled={disabled}
         >
-            {children}
-            {icon ? <Icon name={icon} className={styles.icon} /> : null}
+        {!!icon && (
+            <Icon
+            name={icon}
+            className={clsx(styles.icon, {
+                [styles.hasIcon]: icon && variant !== 'icon',
+            })}
+            />
+        )}
+        {variant !== 'icon' && <span>{children}</span>}
         </button>
     );
 };
 
-Button.propTypes = {
-    variant: PropTypes.oneOf(['primary', 'text', 'icon']),
+Button.propType = {
     className: PropTypes.string,
+    onClick: PropTypes.func.isRequired,
     children: PropTypes.string,
-    onClick: PropTypes.func,
-    disebled: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    disabled: PropTypes.bool,
+    variant: PropTypes.oneOf(['primary', 'text', 'icon', 'danger', 'dashed']),
     icon: PropTypes.oneOf(IconTypes),
+    size: PropTypes.oneOf(['large', 'medium', 'small']),
+    fluid: PropTypes.bool,
 };
 
-Button.detaultProps = {
+Button.defaultProps = {
     variant: 'primary',
 };
