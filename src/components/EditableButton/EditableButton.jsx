@@ -12,7 +12,7 @@ export const EditableButton = ({ className, children, icon, onSave }) => {
         isInputActive,
         handleSave,
         setIsInputActive,
-        onChage,
+        onChange,
         value,
     } = useEditable({
         onSave,
@@ -26,7 +26,7 @@ export const EditableButton = ({ className, children, icon, onSave }) => {
                 ref={inputRef}
                 onBlur={handleSave}
                 value={value}
-                onChange={onChage}
+                onChange={onChange}
                 onEnterPress={handleSave}
                 size='small'
                 />

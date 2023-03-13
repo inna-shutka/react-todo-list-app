@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 export const useEditable = ({ cleanAfterSuccess, onSave }) => {
     const inputRef = useRef(null);
     const [isInputActive, setIsInputActive] = useState(false);
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState('');
 
     const handleSave = async () => {
         if (onSave) {
