@@ -1,52 +1,67 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import styles from './Tag.module.css';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Button } from '../Button';
 import { ColorDot } from '../ColorDot';
-import { useEditable } from '../../hooks/useEditable';
-import { Button } from '../Button/';
 import { Input } from '../Input';
+import styles from './Tag.module.css';
+import { useEditable } from '../../hooks/useEditable';
 
 export const Tag = ({
+    className,
     children,
     onClick,
-    onSave,
-    color,
     active,
+    color,
+    onSave,
     onDelete,
     isEditable,
 }) => {
-    const { inputRef, isInputActive, onBlur, onChange, value, setIsInputActive } =
-        useEditable({
-            onSave,
-        });
+    const {
+        inputRef,
+        isInputActive,
+        handleSave,
+        onChange,
+        value,
+        setIsInputActive,
+    } = useEditable({
+        onSave,
+    });
 
-    const renderEditableContent = () => {
+    useEffect(() => {
+        onChange(children);
+    }, [children]);
+
+    const renderEditableButton = () => {
         if (isEditable && isInputActive) {
             return (
                 <Input
+                    size='small'
                     className={styles.input}
                     ref={inputRef}
-                    onBlur={onBlur}
+                    onBlur={handleSave}
                     value={value}
                     onChange={onChange}
-                ></Input>
+                    onEnterPress={handleSave}
+                />
             );
         }
         if (isEditable && !isInputActive) {
             return (
                 <div className={styles.actions}>
                     <Button
-                        className={styles.actionBtn}
+                        onClick={() => setIsInputActive(true)}
+                        className={styles.actionsButton}
                         variant='icon'
                         icon='pencil'
-                        onClick={() => setIsInputActive(true)}
+                        size='medium'
                     />
                     <Button
-                        className={styles.actionBtn}
+                        onClick={onDelete}
+                        className={styles.actionsButton}
                         variant='icon'
                         icon='trash'
-                        onClick={onDelete}
+                        size='medium'
                     />
                 </div>
             );
@@ -54,29 +69,29 @@ export const Tag = ({
         return null;
     };
 
-    useEffect(() => {
-        onChange(children);
-    }, [children]);
-
     return (
-        <div className={clsx(styles.container, { [styles.active]: active })}>
+        <div className={clsx(styles.container, className, { [styles.active]: active })}>
             <div className={styles.inner}>
-                <ColorDot className={styles.color} color={color}></ColorDot>
-                <button aria-label className={styles.button} onClick={onClick}></button>
+                <ColorDot className={styles.color} color={color} />
+                <button
+                    aria-label='tag-button'
+                    className={styles.button}
+                    onClick={onClick}
+                />
                 <span className={styles.text}>{children}</span>
             </div>
-            {renderEditableContent()}
+            {renderEditableButton()}
         </div>
     );
 };
 
 Tag.propTypes = {
     className: PropTypes.string,
-    children: PropTypes.string,
-    color: PropTypes.string.isRequired,
-    active: PropTypes.bool,
     onClick: PropTypes.func,
-    onSave: PropTypes.func.isRequired,
+    children: PropTypes.string.isRequired,
+    active: PropTypes.bool,
+    color: PropTypes.string.isRequired,
+    onSave: PropTypes.func,
     onDelete: PropTypes.func,
     isEditable: PropTypes.bool,
 };

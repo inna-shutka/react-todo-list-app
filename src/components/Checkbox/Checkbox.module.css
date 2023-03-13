@@ -6,6 +6,8 @@
     cursor: pointer;
     border-radius: 4px;
     box-shadow: 0px 0px 0px 2px transparent;
+    width: 127px;
+    height: 20px;
 }
 
 .checkboxInput {
@@ -43,6 +45,7 @@
 
 .checkbox:hover .checkboxButton {
     border: 1px solid #292D32;
+    background: #FFFFFF;
 }
 
 .checkbox:hover .checkboxText {

@@ -6,17 +6,17 @@ import { Icon, IconTypes } from '../Icon';
 export const Button = ({
     className,
     onClick,
-    children,
-    disabled,
     variant,
     icon,
     size,
+    children,
+    disabled,
     fluid,
 }) => {
     return (
         <button
-        type={onClick ? 'button' : 'submit'}
         onClick={onClick}
+        disabled={disabled}
         className={clsx(
             className,
             styles.button,
@@ -24,7 +24,6 @@ export const Button = ({
             styles[`button-${size}`],
             { [styles.fluid]: fluid }
         )}
-        disabled={disabled}
         >
         {!!icon && (
             <Icon

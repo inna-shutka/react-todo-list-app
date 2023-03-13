@@ -1,60 +1,58 @@
 .card {
-    width: 441px;
-    min-height: 147px;
-    padding: 16px 24px;
+    max-width: 441px;
+    min-width: 343px;
+    max-height: 100%;
+    left: 20px;
+    top: 20px;
     background: #FFF8D4;
     border-radius: 8px;
+    padding: 16px 24px;
 }
 
 .cardHeader {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    margin-bottom: 14px;
+    align-items: center;
+    margin-bottom: 16px;
 }
 
-.title {
+.cardTitle {
     font-weight: 500;
     font-size: 18px;
     line-height: 21px;
     color: #535559;
 }
 
-.headerButtons {
+.wrapperButton {
     display: flex;
-    gap: 12px;
+    justify-content: flex-end;
     align-items: center;
+    gap: 10px;
 }
 
-.cardBtn {
-    width: 24px;
-    height: 24px;
+.popoverWrapper {
+    position: relative;
 }
 
-.text {
+.cardText {
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    color: #6a6e74;
+    color: #6A6E74;
     margin-bottom: 16px;
 }
 
-.textChecked {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    margin-bottom: 16px;
-    color: #6a6e74;
-    text-decoration-line: line-through;
+.done .cardText {
+    text-decoration: line-through;
 }
-.footer {
+
+.cardFooter {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
-.colorWrraper {
+.cardColorWrapper {
     display: flex;
     justify-content: flex-start;
     align-items: center;

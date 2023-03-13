@@ -6,5 +6,6 @@ export * from './Icon';
 export * from './Input';
 export * from './Popup';
 export * from './PopupDelete';
+export * from './PopupEdit';
 export * from './Tag';
 export * from './EditableButton';
