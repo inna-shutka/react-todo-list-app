@@ -1,0 +1,71 @@
+.container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 8px;
+}
+
+.active {
+    background: #EFEFEF;
+}
+
+.active .actions,
+.container:hover .actions {
+    opacity: 1;
+    visibility: visible;
+    width: auto;
+}
+
+.color {
+    margin-right: 8px;
+}
+
+.text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #292D32;
+}
+
+.actions {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    padding-right: 8px;
+}
+
+.input {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 96px;
+}
+
+.input:active .text {
+    opacity: 0;
+}
+
+.actionsButton:not(:last-child) {
+    margin-right: 6px;
+}
+
+.inner {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 8px;
+}
+
+.button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 8px 0px 0px 8px;
+    z-index: 1;
+}
