@@ -4,8 +4,27 @@ body,
 button,
 textarea,
 input,
-select {
+select,
+label,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: "Rubik", sans-serif;
+}
+
+body {
+    background: url(/src/assets/images/bg-dot.png);
+    background-repeat: repeat;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -34,13 +53,6 @@ a:active {
 html,
 body {
     height: 100%;
-}
-body {
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 input,

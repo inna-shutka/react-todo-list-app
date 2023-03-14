@@ -1,0 +1,130 @@
+.container {
+    max-width: 1366px;
+    min-height: 100vh;
+    padding: 24px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media (min-width: 720px) {
+    .container {
+        padding: 40px;
+    }
+}
+
+.open-popup {
+    overflow-y: hidden;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.todoTitle {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: #292D32;
+}
+
+@media (min-width: 720px) {
+    .todoTitle {
+        font-size: 32px;
+        line-height: 38px;
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media (min-width: 720px) {
+    .main {
+        flex-direction: row;
+    }
+}
+
+.mainWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 720px) {
+    .mainWrapper {
+        margin-bottom: 0px;
+    }
+}
+
+.tagsList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+@media (min-width: 720px) {
+    .tagsList {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 40px;
+        width: 200px;
+    }
+}
+
+.tag:not(:last-child) {
+    margin-right: 24px;
+}
+
+@media (min-width: 720px) {
+    .tag:not(:last-child) {
+        margin-bottom: 24px;
+        margin-right: 0px;
+    }
+}
+
+.editableButton {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 720px) {
+    .editableButton {
+        width: 160px;
+        margin-bottom: 32px;
+    }
+}
+
+.todoList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    height: 100%;
+}
+
+@media (min-width: 720px) {
+    .todoList {
+        padding-left: 100px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}

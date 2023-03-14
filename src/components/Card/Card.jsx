@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import styles from './Card.module.css';
 import { Button } from '../Button';
 import { ColorDot } from '../ColorDot';
@@ -15,39 +16,42 @@ export const Card = ({
     onDoneChange,
 }) => {
     return (
-        <div className={clsx(styles.card)}>
-            <header className={styles.cardHeader}>
-                <h2 className={clsx(styles.title)}>{title}</h2>
-                <div className={clsx(styles.headerButtons)}>
+        <div className={clsx(styles.card, { [styles.done]: done })}>
+            <div className={styles.cardHeader}>
+                <p className={styles.cardTitle}>{title}</p>
+                <div className={styles.wrapperButton}>
                     <Button
-                        className={styles.cardBtn}
+                        onClick={onEdit}
+                        className={styles.cardButton}
                         variant='icon'
                         icon='pencil'
-                        onClick={onEdit}
+                        size='medium'
                     />
                     <Button
-                        className={styles.cardBtn}
+                        className={styles.cardButton}
+                        onClick={onDelete}
                         variant='icon'
                         icon='trash'
-                        onClick={onDelete}
+                        size='medium'
                     />
                 </div>
-            </header>
-            <p className={done ? styles.textChecked : styles.text}>{text}</p>
-            <footer className={clsx(styles.footer)}>
-                <div className={clsx(styles.colorWrraper)}>
+            </div>
+            <div className={styles.popoverWrapper}></div>
+            <p className={styles.cardText}>{text}</p>
+            <div className={styles.cardFooter}>
+                <div className={styles.cardColorWrapper}>
                     {tags.map(({ color, id }) => (
-                        <ColorDot className={styles.colorTag} key={id} color={color} />
+                        <ColorDot className={styles.color} key={id} color={color} />
                     ))}
                 </div>
                 <Checkbox
-                    className={clsx(styles.cardCheckbox)}
+                    className={styles.cardCheckbox}
                     checked={done}
                     onChange={onDoneChange}
                 >
                     Done
                 </Checkbox>
-            </footer>
+            </div>
         </div>
     );
 };
@@ -63,7 +67,6 @@ Card.propTypes = {
         PropTypes.shape({
             id: PropTypes.number,
             color: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
         })
     ),
 };
