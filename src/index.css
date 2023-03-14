@@ -19,7 +19,8 @@ h6 {
 
 body {
     background: url(/src/assets/images/bg-dot.png);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
