@@ -1,21 +1,20 @@
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import styles from './Checkbox.module.css';
-import { Icon } from '../Icon/Icon';
+import { IconCheck } from '../Icon';
 
-export const Checkbox = ({ children, checked, onChange }) => {
-
+export const Checkbox = ({ className, checked, onChange, children }) => {
     return (
-        <label className={clsx(styles.checkboxContainer)}>
+        <label className={clsx(styles.checkbox, className)}>
             <input
-                className={styles.checkboxInput}
-                checked={checked}
-                onChange={() => onChange(!checked)}
-                type='checkbox'
+            type='checkbox'
+            className={styles.checkboxInput}
+            checked={checked}
+            onChange={() => onChange(!checked)}
             />
-            <span className={styles.checkboxLabel}>
+            <span className={styles.checkboxButton}>
                 <span className={styles.checkboxIcon}>
-                    <Icon name='IconCheckbox' />
+                    <IconCheck width={14} height={16} fill='#FFFFFF' />
                 </span>
             </span>
             <span className={styles.checkboxText}>{children}</span>
@@ -24,7 +23,8 @@ export const Checkbox = ({ children, checked, onChange }) => {
 };
 
 Checkbox.propTypes = {
-    children: PropTypes.string.isRequired,
+    className: PropTypes.string,
     checked: PropTypes.bool.isRequired,
     onChange: PropTypes.func.isRequired,
+    children: PropTypes.string.isRequired,
 };

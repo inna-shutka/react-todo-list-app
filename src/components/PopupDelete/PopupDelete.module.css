@@ -1,0 +1,34 @@
+.container {
+    width: 320px;
+    height: 134px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 15px rgba(169, 173, 187, 0.15);
+    border-radius: 4px;
+    padding: 16px 16px 24px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupClose {
+    width: 16px;
+    height: 16px;
+    align-self: end;
+}
+
+.popupTitle {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #292D32;
+    margin-bottom: 32px;
+}
+
+.popupButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
