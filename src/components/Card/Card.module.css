@@ -40,6 +40,7 @@
     line-height: 17px;
     color: #6A6E74;
     margin-bottom: 16px;
+    word-break: break-all;
 }
 
 .done .cardText {

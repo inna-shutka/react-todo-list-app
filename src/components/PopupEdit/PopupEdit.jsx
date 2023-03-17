@@ -33,7 +33,11 @@ export const PopupEdit = ({
     };
 
     const handleSave = () => {
-        onSave({ title: state.title, text: state.text, tags: state.selectedTags });
+        onSave({ 
+            title: state.title, 
+            text: state.text, 
+            tags: state.selectedTags,
+        });
     };
 
     const onSelectedTagsChange = (tagId) => {
@@ -61,7 +65,7 @@ export const PopupEdit = ({
                 </Button>
             </header>
 
-            <label className={styles.text} htmlFor="title">Title</label>
+            <label className={styles.text} htmlFor='title'>Title</label>
             <Input
                 placeholder='Add a title...'
                 className={styles.input}

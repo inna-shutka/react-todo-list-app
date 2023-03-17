@@ -2,8 +2,8 @@ import { useCallback, useState, useMemo } from 'react';
 import { editItemInArray } from '../utils/editItemInArray';
 import { deleteItemFromArray } from '../utils/deleteItemFromArray';
 
-export const useTodo = () => {
-    const [todos, setTodos] = useState([
+export const useTodo = (activeTagId) => {
+    const [todoList, setTodoList] = useState([
         {
             id: 1,
             title: 'todo 1',
@@ -26,52 +26,49 @@ export const useTodo = () => {
             tags: [2, 3],
         },
     ]);
+
     const [editId, setEditId] = useState(null);
     const [deleteId, setDeleteId] = useState(null);
+    const [doneTodo, setDoneTodo] = useState(false);
 
-    const hideDoneTodos = () => {
-        const copyTodos = [...todos];
-        const doneTodo = copyTodos.filter((todo) => !todo.done);
-        setTodos(doneTodo);
+    const todos = useMemo(() => {
+        if (doneTodo) {
+            return todoList.filter((todo) => !todo.done);
+        }
+        if (activeTagId) {
+            return todoList.filter(({ tags }) => tags.includes(activeTagId));
+        }
+        return todoList;
+    }, [doneTodo, todoList, activeTagId]);
+
+    const onCreateTodo = (newTodo) => {
+        setTodoList((prevState) => [
+            ...prevState,
+            {
+            id: Date.now(),
+            done: false,
+            ...newTodo,
+            },
+        ]);
+        setEditId(null);
     };
 
-    const onCreateTodo = useCallback(
-        (newTodo) => {
-            setTodos((prevState) => [
-                ...prevState,
-                    {
-                        id: Date.now(),
-                        done: false,
-                        ...newTodo,
-                    },
-            ]);
-            setEditId(null);
-        },
-        [setTodos]
-    );
+    const onSaveTodo = (newTodo) => {
+        editItemInArray({
+            list: todos,
+            item: { id: editId, ...newTodo },
+            setState: setTodoList,
+            onCleanup: setEditId,
+        });
+    };
 
-    const onSaveTodo = useCallback(
-        (newTodo) => {
-            editItemInArray({
-                list: todos,
-                item: { id: editId, ...newTodo },
-                setState: setTodos,
-                onCleanup: setEditId,
-            });
-        },
-        [todos, setTodos, setEditId]
-    );
-
-    const onDeleteTodo = useCallback(
-        () =>
-            deleteItemFromArray({
-                list: todos,
-                id: deleteId,
-                setState: setTodos,
-                onCleanup: setDeleteId,
-            }),
-            [todos, deleteId, setTodos, setDeleteId]
-    );
+    const onDeleteTodo = () =>
+        deleteItemFromArray({
+            list: todos,
+            id: deleteId,
+            setState: setTodoList,
+            onCleanup: setDeleteId,
+        });
 
     const todoEditing = useMemo(() => {
         if (editId === 'new') {
@@ -81,8 +78,8 @@ export const useTodo = () => {
     }, [editId, todos]);
 
     return {
-        data: todos,
-        setData: setTodos,
+        data: todoList,
+        setData: setTodoList,
         editId,
         deleteId,
         setDeleteId,
@@ -91,6 +88,8 @@ export const useTodo = () => {
         create: onCreateTodo,
         delete: onDeleteTodo,
         update: onSaveTodo,
-        hideDoneTodos,
+        todos,
+        doneTodo,
+        setDoneTodo,
     };
 };

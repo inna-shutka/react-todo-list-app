@@ -14,6 +14,14 @@ export const useTags = () => {
     const [deletingId, setDeletingId] = useState(null);
     const [activeId, setActiveId] = useState(null);
 
+    const toggleActiveId = (id) => {
+        if (activeId !== id) {
+            setActiveId(id);
+        } else {
+            setActiveId(null);
+        }
+    };
+
     const getParsedTags = useCallback(
         (tagIds = []) => {
             return tags.filter(({ id }) => tagIds.includes(id));
@@ -28,10 +36,10 @@ export const useTags = () => {
                 list: tags,
                 setState: setTags,
                 extraConditional: !tags.some(
-                ({ name }) => name.toLowerCase() === tag.name.toLowerCase()
+                    ({ name }) => name.toLowerCase() === tag.name.toLowerCase()
                 ),
             }),
-            [tags, setTags]
+        [tags, setTags]
     );
 
     const onDeleteTag = useCallback(
@@ -47,6 +55,13 @@ export const useTags = () => {
 
     const onCreateNewTag = useCallback(
         async (name) => {
+            if (name.length <= 0) {
+                return null;
+            }
+            if (tags.some((tag) => tag.name === name)) {
+                alert(`Tag '${name}' already exists!`);
+                return null;
+            }
             const newTag = {
                 id: Date.now(),
                 name,
@@ -73,5 +88,6 @@ export const useTags = () => {
         create: onCreateNewTag,
         delete: onDeleteTag,
         update: onSaveTag,
+        toggleActiveId,
     };
 };
