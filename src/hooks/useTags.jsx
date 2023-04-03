@@ -1,15 +1,21 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import uniqolor from 'uniqolor';
 import { editItemInArray } from '../utils/editItemInArray';
 import { deleteItemFromArray } from '../utils/deleteItemFromArray';
 
 export const useTags = () => {
-    const [tags, setTags] = useState([
-    { id: 1, color: '#BCB9FF', name: 'work' },
-    { id: 2, color: '#76B6FF', name: 'study' },
-    { id: 3, color: '#FF9960', name: 'entertainment' },
-    { id: 4, color: '#A0EC83', name: 'family' },
-    ]);
+    const [tags, setTags] = useState(
+        JSON.parse(localStorage.getItem('tags')) ?? [
+            { id: 1, color: '#BCB9FF', name: 'work' },
+            { id: 2, color: '#76B6FF', name: 'study' },
+            { id: 3, color: '#FF9960', name: 'entertainment' },
+            { id: 4, color: '#A0EC83', name: 'family' },
+        ]
+    );
+
+    useEffect(() => {
+        localStorage.setItem('tags', JSON.stringify(tags));
+    }, [tags]);
 
     const [deletingId, setDeletingId] = useState(null);
     const [activeId, setActiveId] = useState(null);

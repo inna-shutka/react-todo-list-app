@@ -11,13 +11,13 @@ export const useEditable = ({ cleanAfterSuccess, onSave }) => {
             if (ok) {
                 setIsInputActive(false);
             }
-        if (!ok && onSave) {
-            setIsInputActive(false);
-        }
-        if (ok && cleanAfterSuccess) {
+            if (!ok && onSave) {
+                setIsInputActive(false);
+            }
+            if (ok && cleanAfterSuccess) {
             setValue('');
+            }
         }
-    }
     };
 
     useEffect(() => {
