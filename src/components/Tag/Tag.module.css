@@ -10,6 +10,7 @@
     background: #EFEFEF;
 }
 
+.actionsVisible .actions,
 .active .actions,
 .container:hover .actions {
     opacity: 1;

@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import styles from './Card.module.css';
 import { Button } from '../Button';
 import { ColorDot } from '../ColorDot';

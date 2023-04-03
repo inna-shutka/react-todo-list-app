@@ -8,27 +8,30 @@ export const useEditable = ({ cleanAfterSuccess, onSave }) => {
     const handleSave = async () => {
         if (onSave) {
             const ok = await onSave(value);
-        if (ok) {
-            setIsInputActive(false);
-        }
-        if (ok && cleanAfterSuccess) {
+            if (ok) {
+                setIsInputActive(false);
+            }
+            if (!ok && onSave) {
+                setIsInputActive(false);
+            }
+            if (ok && cleanAfterSuccess) {
             setValue('');
-        }
+            }
         }
     };
 
     useEffect(() => {
         if (inputRef?.current && isInputActive) {
-        inputRef.current.focus();
+            inputRef.current.focus();
         }
     }, [inputRef, isInputActive]);
 
     return {
-        handleSave,
-        isInputActive,
-        inputRef,
-        onChange: setValue,
-        value,
-        setIsInputActive,
+    handleSave,
+    isInputActive,
+    inputRef,
+    onChange: setValue,
+    value,
+    setIsInputActive,
     };
 };
